@@ -22,7 +22,7 @@
           3. 表单method指定是get方式，执行servlet中的doGet()
              表单method指定post方式，执行servlet中的doPost()
        --%>
-      <a href="first">访问FirstServlet</a>
+      <a href="first?username=李四&password=111">访问FirstServlet</a>
 
   </body>
 </html>
