@@ -22,5 +22,12 @@
 
     <%-- 访问资源：一旦阻止cookie，session会失效，必须重写URL，强制给地址追加上JSESSIONID --%>
     <a href="<%= response.encodeURL("index.jsp") %>">访问index.jsp页面</a>
+
+    <%-- 统计访问人次 --%>
+    登录访问的人数：<%= application.getAttribute("counts") %>
+
+    <%--  获取上下文参数 --%>
+    获取上下文参数:<%= application.getInitParameter("version") %>
+    获取上下文参数:${initParam.version}
 </body>
 </html>

@@ -3,7 +3,10 @@ package com.igeek.javaee.ch02.controller;
 import com.igeek.javaee.ch02.entity.User;
 import com.igeek.javaee.ch02.service.UserService;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -11,6 +14,7 @@ import java.net.URLEncoder;
 
 @WebServlet(name = "LoginServlet" , urlPatterns = "/user")
 public class UserServlet extends HttpServlet {
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doGet(request, response);
@@ -66,6 +70,28 @@ public class UserServlet extends HttpServlet {
 
                             //设置会话属性
                             session.setAttribute("user",user);
+
+
+                            //登录访问人次的统计（上下文属性）
+                            //1.获取上下文对象
+                            ServletContext servletContext = this.getServletContext();
+                            //2.从上下文对象中获取上下文属性的值
+                            Integer counts = (Integer)servletContext.getAttribute("counts");
+                            //3.若是第一次访问，直接+1
+                            if(counts==null){
+                                counts = 0;
+                            }
+                            counts++;
+                            //4.存储到上下文对象中
+                            servletContext.setAttribute("counts",counts);
+
+                            //获取上下文参数
+                            String version = servletContext.getInitParameter("version");
+                            System.out.println("上下文参数version = "+version);
+
+                            //获取当前项目实际发布路径
+                            //E:\javaweb\3.JSP+Servlet\code\javaee\out\artifacts\javaee_war_exploded\
+                            System.out.println("项目实际发布路径："+servletContext.getRealPath("/"));
 
                             //跳转至成功页面
                             request.getRequestDispatcher("success.jsp").forward(request,response);
