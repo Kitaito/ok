@@ -1,9 +1,18 @@
+<%@ page import="com.igeek.javaee.ch02.entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
     <title>index.jsp</title>
   </head>
   <body>
+      <%
+          //登录访问控制
+          User user = (User)session.getAttribute("user");
+          if(user==null){
+              response.sendRedirect("login.jsp");
+          }
+      %>
+
       <form action="first" method="post">
         username:<input type="text" name="username" placeholder="请输入用户名" /><br>
         password:<input type="password" name="password" /><br>
