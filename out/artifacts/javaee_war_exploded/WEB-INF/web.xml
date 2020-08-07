@@ -8,6 +8,10 @@
         <param-name>version</param-name>
         <param-value>abc</param-value>
     </context-param>
+    <context-param>
+        <param-name>address</param-name>
+        <param-value>无锡</param-value>
+    </context-param>
 
 
 </web-app>
