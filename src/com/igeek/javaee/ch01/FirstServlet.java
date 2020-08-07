@@ -21,7 +21,7 @@ public class FirstServlet extends HttpServlet {
         System.out.println("doPost()");
 
         //处理中文乱码
-        request.setCharacterEncoding("UTF-8");
+        //request.setCharacterEncoding("UTF-8");
 
         //获得请求参数(一般用于接收浏览器传过来的值)
         //获得一个请求参数的值： 请求.getParameter("form表单中name属性的值")

@@ -5,13 +5,13 @@
     <title>成功页面</title>
 </head>
 <body>
-    <%
+    <%--<%
         //登录访问控制
         User user = (User)session.getAttribute("user");
         if(user==null){
             response.sendRedirect("login.jsp");
         }
-    %>
+    %>--%>
 
     <%-- 测试请求转发携带数据 ， 请求参数中获取值 --%>
     <h1 style="color: green">成功 欢迎${param.username} </h1>

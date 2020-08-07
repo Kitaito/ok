@@ -5,13 +5,13 @@
     <title>index.jsp</title>
   </head>
   <body>
-      <%
+      <%--<%
           //登录访问控制
           User user = (User)session.getAttribute("user");
           if(user==null){
               response.sendRedirect("login.jsp");
           }
-      %>
+      %>--%>
 
       <form action="first" method="post">
         username:<input type="text" name="username" placeholder="请输入用户名" /><br>

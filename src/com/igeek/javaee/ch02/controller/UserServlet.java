@@ -22,7 +22,7 @@ public class UserServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置编码集
-        request.setCharacterEncoding("UTF-8");
+        //request.setCharacterEncoding("UTF-8");
         //创建业务逻辑对象
         UserService service = new UserService();
         //获得会话
@@ -30,7 +30,6 @@ public class UserServlet extends HttpServlet {
 
         //获取请求参数
         String code = request.getParameter("code");
-
         if(code!=null && !code.equals("")){
 
             switch (code){
@@ -38,6 +37,7 @@ public class UserServlet extends HttpServlet {
                 case "login":
                     //获取请求参数
                     String username = request.getParameter("username");
+                    System.out.println("username = "+username);
                     String password = request.getParameter("password");
                     String timeLength = request.getParameter("timeLength");
 
