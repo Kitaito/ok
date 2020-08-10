@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="col-md-4 col-lg-4">
-			<input class="btn btn-success" type="button" value="增加商品" onclick="">
+			<input class="btn btn-success" type="button" value="增加商品" onclick="add()">
 			<input class="btn btn-danger" type="button" value="删除所有" onclick="">
 		</div>
 	</div>
@@ -45,7 +45,7 @@
 					<td>${items.name}</td>
 					<td>${items.detail}</td>
 					<td>${items.price}</td>
-					<td><fmt:formatDate value="${items.createtime}" pattern="yyyy-MM-dd"/></td>
+					<td><fmt:formatDate value="${items.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 					<td>
 						<c:if test="${items.pic!=null && items.pic!=''}">
 							<img src="${items.pic}" width="64px" height="auto"/>

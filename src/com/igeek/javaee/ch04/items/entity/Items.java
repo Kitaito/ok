@@ -1,5 +1,6 @@
 package com.igeek.javaee.ch04.items.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Items {
@@ -7,13 +8,32 @@ public class Items {
 
     private String name;
 
-    private Float price;
+    private Double price;
 
     private String pic;
 
-    private Date createtime;
+    private Timestamp createtime;
 
     private String detail;
+
+    public Items() {
+    }
+
+    public Items(String name, Double price, Timestamp createtime, String detail) {
+        this.name = name;
+        this.price = price;
+        this.createtime = createtime;
+        this.detail = detail;
+    }
+
+    public Items(Integer id, String name, Double price, String pic, Timestamp createtime, String detail) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.pic = pic;
+        this.createtime = createtime;
+        this.detail = detail;
+    }
 
     public Integer getId() {
         return id;
@@ -28,14 +48,14 @@ public class Items {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -44,14 +64,14 @@ public class Items {
     }
 
     public void setPic(String pic) {
-        this.pic = pic == null ? null : pic.trim();
+        this.pic = pic;
     }
 
-    public Date getCreatetime() {
+    public Timestamp getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(Date createtime) {
+    public void setCreatetime(Timestamp createtime) {
         this.createtime = createtime;
     }
 
@@ -60,14 +80,18 @@ public class Items {
     }
 
     public void setDetail(String detail) {
-        this.detail = detail == null ? null : detail.trim();
+        this.detail = detail;
     }
 
-	@Override
-	public String toString() {
-		return "Items [id=" + id + ", name=" + name + ", price=" + price
-				+ ", pic=" + pic + ", createtime=" + createtime + ", detail="
-				+ detail + "]";
-	}
-    
+    @Override
+    public String toString() {
+        return "Items{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", pic='" + pic + '\'' +
+                ", createtime=" + createtime +
+                ", detail='" + detail + '\'' +
+                '}';
+    }
 }

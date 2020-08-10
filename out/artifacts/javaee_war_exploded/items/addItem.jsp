@@ -7,37 +7,41 @@
 	<title>修改商品信息</title>
 	<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 	<script src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
-	<div class="container" style="margin-top: 100px">
+	<div style="padding: 0 20px;margin-top: 10px">
 		<h2 class="form-group">添加商品</h2>
 		<form id="f" action="" method="post" enctype="multipart/form-data">
-			<div class="form-group" hidden="hidden">
-				<label for="id">商品id</label>
-				<input type="text" class="form-control" id="id" placeholder="id" name="id">
-			</div>
 			<div class="form-group">
 				<label for="name">商品名称</label>
-				<input type="text" class="form-control" id="name" placeholder="name" name="name" required="required">
+				<input type="text" class="form" id="name" placeholder="name" name="name" required="required"
+					   value="${items.name}"
+					   onblur="validateName('${pageContext.request.contextPath}/items?code=validate')">
+				<span class="nameMsg"></span>
 			</div>
 			<div class="form-group">
 				<label for="detail">商品描述</label>
-				<input type="text" class="form-control" id="detail" placeholder="desc" name="detail">
+				<input type="text" class="form" id="detail" placeholder="desc" name="detail"
+					   value="${items.detail}">
 			</div>
 			<div class="form-group">
 				<label for="price">商品价格</label>
-				<input type="text" class="form-control" id="price" placeholder="price" name="price" required="required">
+				<input type="text" class="form" id="price" placeholder="price" name="price" required="required"
+					   value="${items.price}">
 			</div>
 			<div class="form-group">
 				<label for="pic">商品图片</label>
-				<img id="pic" name="pic" width="100" height="100" />
-				<input type="file" class="form-control" id="file" name="file" onchange="showPreview(this)">
+				<img id="pic" name="pic" src="${items.pic}" width="100px" height="auto"/>
+				<input type="file" class="form" id="file" name="file" onchange="showPreview(this)">
 			</div>
 			<div class="form-group">
 				<label for="createtime">生产日期</label>
-				<input type="date" class="form-control" id="createtime" placeholder="createtime" name="createtime">
+				<input type="text" class="form Wdate" id="createtime" placeholder="createtime" name="createtime"
+					   value="${items.createtime}"
+					   onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
 			</div>
-			<button type="submit" class="btn btn-success">提交</button>
+			<button type="button" class="btn btn-success" onclick="addServlet('${pageContext.request.contextPath}/items?code=add')">提交</button>
 		</form>
 	</div>
 </body>

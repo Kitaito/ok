@@ -4,10 +4,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>index.jsp</title>
-	<link rel="stylesheet" href="../css/index.css"/>
-	<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="../js/index.js"></script>
-	<script type="text/javascript" src="../js/user.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css"/>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/user.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body style="letter-spacing: -8px">
 	<div class="head" style="width: 1200px;height: 200px;background-color: olive">

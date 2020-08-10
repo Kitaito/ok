@@ -25,4 +25,34 @@ public class ItemsService {
         return vo;
     }
 
+
+    //校验商品用户名是否存在
+    public boolean validateName(String name){
+        Items items = dao.selectOne(name);
+        if(items==null){
+            return true; //当前商品不存在，商品名可用
+        }
+        //当前商品存在，商品名不可用
+        return false;
+    }
+
+
+    //注册
+    public boolean add(Items items){
+        boolean flag = this.validateName(items.getName());
+        if(flag){
+            //商品名不存在，可用
+            int i = dao.insert(items);
+            if(i>0){
+                //插入成功
+                return true;
+            }else{
+                //没有成功插入
+                return false;
+            }
+        }
+        //当前商品存在，商品名不可用
+        return false;
+    }
+
 }
