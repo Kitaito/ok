@@ -106,7 +106,7 @@ public class ItemsServlet extends HttpServlet {
                             //设置商品的图片信息
                             items.setPic("/pic/"+newName);
                             //将图片写入到服务器的磁盘上
-                            part.write("E:\\javaweb\\3.JSP+Servlet\\temp\\"+newName);
+                            part.write("G:\\0811 item\\temp\\"+newName);
                         }
                     }
 
